@@ -8,6 +8,7 @@ const config = require('./config')
 //import Routes
 const productsRouter = require('./products/products.routers')
 
+
 /********************************** INIT  ******************************************* */
 //initialize express
 const app = express()
