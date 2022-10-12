@@ -26,6 +26,18 @@ const getAllTotalsProducts = async () => {
 //   .catch(err => console.log(err))
 // // Test EXAMPLE --> node ./src/movies/movies.controlles.js
 
+
+/******************** >> COUNT: ACTIVE <<****************************/
+
+const countTotalProducts = async () => {
+  const data = await Products.findAll() // get all products existens
+  return data.length
+}
+countTotalProducts()
+  .then()
+  .catch(err => console.log(err))
+
+
 /***************** GET MOVIE BY ID OR OTHER *****************/
 //Select * from movies where id = id;
 const getProductId = async (id) => {
@@ -114,7 +126,8 @@ module.exports = {
   getProductId,
   createNewProduct,
   editProductId,
-  deleteProductId
+  deleteProductId,
+  countTotalProducts
 }
 
 console.log('CONTROLLERS OK!!!')

@@ -1,14 +1,17 @@
 //import Fuctions of Controllers
 const { response } = require('express');
-const { getAllTotalsProducts, getProductId, createNewProduct, editProductId, deleteProductId } = require('./products.controllers');
+const { getAllTotalsProducts, getProductId, createNewProduct, editProductId, deleteProductId, countTotalProducts } = require('./products.controllers');
+
 
 //  GET ALL MOVIES 
-const getAllProducts = (req, res) => {
+const getAllProducts = async (req, res) => {
+  const count = await countTotalProducts()
   getAllTotalsProducts()
     .then(data => {
       if (data) {
         res.status(200).json({
           GoHome: 'http://127.0.0.1:9000/',
+          count_total: count,
           result: data
         })
       } else {
